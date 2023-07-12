@@ -23,10 +23,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build BookStoreApp.sln --configuration Release
+        run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish BookStoreApp.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'MyDemoApp223'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_839BF7B891814D9D96FBC646F4F92733 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF1EB5084C0743DF9CF1D282D87153B9 }}
           package: .
